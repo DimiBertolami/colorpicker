@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  font-size: 14px;
+}
+#canvas {
+  width=100%
+}
