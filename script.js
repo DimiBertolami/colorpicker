@@ -9,6 +9,7 @@ for (a=0;a<=5;a++){
     for (c=0;c<=5;c++){
       count++
       let hex = "#" + $arr_color[a] + $arr_color[b] + $arr_color[c]
+        console.log("hex value:" + hex)
 //      for ($posX;$posX<=480;$posX+=20){
 //        for ($posY;$posY<=480;$posY+=20){
 //          ctx.fillStyle = hex;

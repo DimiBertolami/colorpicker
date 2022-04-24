@@ -1,19 +1,90 @@
 <!DOCTYPE html>
-  <canvas id="MyPaintScreen" width="device-width" height="device-height">
-  </canvas>
-
 <html lang="en">
 
 <head>
   <meta name="MyHTMLThrashcan" content="nothing to see here" />
   <meta charset="utf-8">
   <title>Colorpicker</title>
-
+  <!--
+  -->
+ <script src="https://pixijs.download/release/pixi.js"></script>
+  <script src="https://raw.githubusercontent.com/jonobr1/two.js/dev/build/two.min.js"></script>
+  <script src="https://cdn.skypack.dev/pin/two.js@v0.8.5-Arpdo1vWMmE8QrEx8mKw/mode=imports/optimized/twojs.js" id="Two" itemid="Two"></script>
 </head>
-<script>
-</script>
 
 <body>
+<canvas id="MyPaintScreen" width=1400 height=3000>
+<div class="container">
+  <div class="row" id="rowID">
+  </div>
+</div>
+
+</canvas>
 </body>
+<script>
+  const app = new PIXI.Application({ antialias: true });
+  var canvas = document.getElementById("MyPaintScreen");
+  var ctx = canvas.getContext("2d");
+
+  let $posX = 0;
+  let $posY = 0;
+  let $arr_color = ["00", "22", "55", "88", "BB", 'EE', 'FF'];
+  let count = 1
+  for (a=0;a<=6;a++) {
+    for (b = 0; b <= 6; b++) {
+      for (c = 0; c <= 6; c++) {
+        var hex = "#" + $arr_color[a] + $arr_color[b] + $arr_color[c]
+
+        if ($posX < 1000){
+          $posX=$posX + 100
+        } else {
+          $posX=0
+          $posY=$posY +40
+        }
+        ctx.font="15px Georgia";
+        ctx.fillStyle = "#" + $arr_color[a] + $arr_color[b] + $arr_color[c];
+        ctx.fillText("#" + $arr_color[a] + $arr_color[b] + $arr_color[c], $posX, $posY, 85)
+
+        var rect = ctx.fillRect($posX, $posY, 80, 40);
+
+        /*
+        copy to clipboard
+                copyToClipboard()
+        make bootstrap colored buttons
+        * */
+
+//        drawBoxDimiWeekend($posX, $posY, hex)
+//        let rectangle = two.makeRectangle(two.width / 20, two.height / 20, 300, 300);
+//        rectangle.fill = 'rgb(234, 60, 50)';
+//        rectangle.linewidth = 10;
+
+//        two.render();
+
+
+        count++
+      }
+    }
+  }
+
+  function drawBoxDimiWeekend($posX, $posY, $color){
+    console.log("task " + count + ")   color: " + hex + "  pos x: " + $posX + " pos y: " + $posY)
+    document.body.appendChild(app.view);
+
+    const graphics = new PIXI.Graphics();
+    const rectangle = PIXI.Sprite.from(PIXI.Texture.WHITE);
+    rectangle.width = 300;
+    rectangle.height = 200;
+    rectangle.tint = 0xFF0000;
+      MyPaintScreen.addChild(rectangle);
+// Rectangle
+//    graphics.beginFill($color);
+//    graphics.drawRect(0, 0, 100, 50);
+//    graphics.endFill();
+
+  };
+
+
+
+</script>
 
 </html>
